@@ -8,8 +8,8 @@ import { MovieIcon } from "../../icons/index";
 import results from '../results';
 
 
-export default ({history}) => {
-
+export default  ({history}) =>{
+	console.log(history);
 	const [searchText,setSearchText] = useState('');
 	const classes=styles();
 
@@ -21,7 +21,8 @@ export default ({history}) => {
 		setSearchText('');
 	};
 	const searchTextClick= event =>{
-		history.push(`/results/?movieName=${searchText}`);
+		//buscar como funciona bien history
+		history.push(`/results?movieName=${searchText}`);
 	};
 	
 	return(

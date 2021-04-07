@@ -8,7 +8,7 @@ import { movieResults, isSearchLoading } from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
 export default ({location})=>{
-
+    console.log(location);
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
     const isLoading= useSelector(state => isSearchLoading(state));
