@@ -33,7 +33,8 @@ export default makeStyles((theme)=>( {
         marginTop:'.5rem'
     },
     searchButtom:{
-        marginLeft:'.5rem'
+        marginLeft:'.5rem',
+        color:'white'
     },
     icon:{
         fontSize:'4rem'
@@ -54,9 +55,9 @@ export default makeStyles((theme)=>( {
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.50),
+        backgroundColor: fade(theme.palette.common.black, 0.50),
         '&:hover': {
-          backgroundColor: fade(theme.palette.common.white, 0.70),
+          backgroundColor: fade(theme.palette.common.black, 0.70),
         },
         marginLeft: 0,
         width: '100%',
@@ -92,6 +93,6 @@ export default makeStyles((theme)=>( {
         },
       },
       appBar:{
-        backgroundColor:'#84ffff' ,
+        backgroundColor:'#8c9eff' ,
        }
 }));

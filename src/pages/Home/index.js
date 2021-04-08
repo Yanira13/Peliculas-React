@@ -1,15 +1,23 @@
 import React, {useState} from 'react';
+import { BrowserRouter as Router, useHistory,Route } from 'react-router-dom';
+
+import Results from '../results';
+import MovieDatil from "../MovieDetail";
+
+
 import {Card, Container,Typography,Grid, TextField, Button,AppBar,Toolbar,IconButton,InputBase} 
 from '@material-ui/core'
 import {MenuIcon} from "@material-ui/icons/Menu";
 import {SearchIcon} from "@material-ui/icons/Search";
 import styles from './style'
 import { MovieIcon } from "../../icons/index";
-import results from '../results';
 
 
-export default  ({history}) =>{
-	console.log(history);
+
+export default function Home (){
+
+	const history= useHistory();
+
 	const [searchText,setSearchText] = useState('');
 	const classes=styles();
 
@@ -26,31 +34,7 @@ export default  ({history}) =>{
 	};
 	
 	return(
-		// (<Container className={classes.container}>
-			
-		// 	{/* <Card className={classes.cardContainer}>
-		// 		<Grid container className={classes.titleGridContainer}>
-		// 			<Grid>
-		// 				<Typography className={classes.title}>Bienvenido</Typography>
-		// 			</Grid>
-		// 			<Grid>
-		// 				<MovieIcon className={classes.icon}/>
-		// 			</Grid>
-		// 		</Grid>
-		// 		<TextField 
-		// 			value={searchText}
-		// 			placeholder="Buscar..." 
-		// 			onChange={takeSearchTextChange}
-		// 			className={classes.textFieldSearch}
-		// 		/>
-		// 		<Grid className={classes.buttomContainer}>
-		// 			<Button variant="contained" onClick={cleandText}>Limpiar</Button>
-		// 			<Button variant="contained" className={classes.searchButtom} color="primary" size="large" onClick={searchTextClick}>Buscar</Button>
-		// 		</Grid>
-		// 	</Card> */}
-			
-		// </Container>)
-
+	
 		<div className={classes.root}>
 		<AppBar position="static" className={classes.appBar}>
 		<Toolbar>
@@ -71,7 +55,7 @@ export default  ({history}) =>{
 			</div> */}
 			<InputBase
 				value={searchText}
-				placeholder="Buscar..." 
+				placeholder="" 
 				onChange={takeSearchTextChange}
 				classes={{
 				root: classes.inputRoot,
@@ -79,14 +63,22 @@ export default  ({history}) =>{
 				}}
 				inputProps={{ 'aria-label': 'search' }}
 			/>
-			</div>
-			<Button variant="outlined" size="medium" className={classes.searchButtom} color="primary" 
+			<Button  size="medium" className={classes.searchButtom} 
 			onClick={searchTextClick}>
-				Buscar
+				Buscar  
 			</Button>
+			</div>
+			
 		</Toolbar>
 		</AppBar>
+		<Router>
+		    <div>
+				<Route path="/results" component={Results} />
+				<Route path="/movie/:id" component={MovieDatil} />
+			</div>
+		</Router>
 		</div>
 	)
+	
 	
 }
