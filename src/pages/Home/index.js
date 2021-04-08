@@ -54,21 +54,21 @@ export default  ({history}) =>{
 		<div className={classes.root}>
 		<AppBar position="static" className={classes.appBar}>
 		<Toolbar>
-			<IconButton
+			{/* <IconButton
 			edge="start"
 			className={classes.menuButton}
 			color="inherit"
 			aria-label="open drawer"
 			>
-			{/* <MenuIcon /> */}
-			</IconButton>
+			 <MenuIcon /> 
+			</IconButton> */}
 			<Typography className={classes.title} variant="h6" noWrap>
 			Peliculas
 			</Typography>
 			<div className={classes.search}>
-			<div className={classes.searchIcon}>
-				{/* <SearchIcon /> */}
-			</div>
+			{/* <div className={classes.searchIcon}>
+				 <SearchIcon /> 
+			</div> */}
 			<InputBase
 				value={searchText}
 				placeholder="Buscar..." 
@@ -79,11 +79,11 @@ export default  ({history}) =>{
 				}}
 				inputProps={{ 'aria-label': 'search' }}
 			/>
-			<Button variant="contained" className={classes.searchButtom} color="primary" size="large" 
+			</div>
+			<Button variant="outlined" size="medium" className={classes.searchButtom} color="primary" 
 			onClick={searchTextClick}>
 				Buscar
 			</Button>
-			</div>
 		</Toolbar>
 		</AppBar>
 		</div>

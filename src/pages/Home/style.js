@@ -40,18 +40,18 @@ export default makeStyles((theme)=>( {
     },
     root: {
         flexGrow: 1,
-      },
-      menuButton: {
+    },
+    menuButton: {
         marginRight: theme.spacing(2),
-      },
-      title: {
+    },
+    title: {
         flexGrow: 1,
         display: 'none',
         [theme.breakpoints.up('sm')]: {
           display: 'block',
         },
-      },
-      search: {
+    },
+    search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.50),
@@ -64,8 +64,8 @@ export default makeStyles((theme)=>( {
           marginLeft: theme.spacing(1),
           width: 'auto',
         },
-      },
-      searchIcon: {
+    },
+    searchIcon: {
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
@@ -73,7 +73,7 @@ export default makeStyles((theme)=>( {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      },
+    },
       inputRoot: {
         color: 'inherit',
       },
@@ -82,6 +82,7 @@ export default makeStyles((theme)=>( {
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
+        borderColor:'text.primary',
         width: '100%',
         [theme.breakpoints.up('sm')]: {
           width: '12ch',
