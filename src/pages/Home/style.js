@@ -51,6 +51,9 @@ export default makeStyles((theme)=>( {
         [theme.breakpoints.up('sm')]: {
           display: 'block',
         },
+        textDecoration:'none',
+        color:'white',
+        fontSize:25
     },
     search: {
         position: 'relative',

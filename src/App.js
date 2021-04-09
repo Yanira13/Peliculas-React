@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Home from './pages/Home';
+import Results from './pages/results';
 
 const App = ({ store }) => (
 	<Provider store={store}>
 		 <Router>
-			 <Home></Home>
+			 <Route path="/" component={Home} /> 
 		</Router> 
 	</Provider>
 );

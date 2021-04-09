@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { BrowserRouter as Router, useHistory,Route } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { useHistory,Route,Link } from 'react-router-dom';
 
 import Results from '../results';
 import MovieDatil from "../MovieDetail";
@@ -17,7 +17,6 @@ import { MovieIcon } from "../../icons/index";
 export default function Home (){
 
 	const history= useHistory();
-
 	const [searchText,setSearchText] = useState('');
 	const classes=styles();
 
@@ -25,11 +24,11 @@ export default function Home (){
 	const takeSearchTextChange= event =>{
 		setSearchText(event.target.value);
 	};
-	const cleandText= event =>{
-		setSearchText('');
-	};
-	const searchTextClick= event =>{
-		//buscar como funciona bien history
+
+	const searchTextClick= () =>{
+		//si buscas vacio te aparecen las paliculas de piratas
+		if(searchText==='')
+			history.push(`/results?movieName=piratas`);
 		history.push(`/results?movieName=${searchText}`);
 	};
 	
@@ -46,9 +45,9 @@ export default function Home (){
 			>
 			 <MenuIcon /> 
 			</IconButton> */}
-			<Typography className={classes.title} variant="h6" noWrap>
+			<Link to="/" className={classes.title} >
 			Peliculas
-			</Typography>
+			</Link>
 			<div className={classes.search}>
 			{/* <div className={classes.searchIcon}>
 				 <SearchIcon /> 
@@ -71,12 +70,9 @@ export default function Home (){
 			
 		</Toolbar>
 		</AppBar>
-		<Router>
-		    <div>
-				<Route path="/results" component={Results} />
-				<Route path="/movie/:id" component={MovieDatil} />
-			</div>
-		</Router>
+		
+			<Route path="/results" component={Results} />
+			<Route path="/movie/:id" component={MovieDatil} />
 		</div>
 	)
 	

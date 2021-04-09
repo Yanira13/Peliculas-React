@@ -1,5 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory} from 'react-router-dom';
+
 import { Container, CircularProgress, Divider,Grid } from "@material-ui/core";
 import queryString from "query-string";
 
@@ -7,8 +9,12 @@ import { searchMovie } from "../../redux/actions/search";
 import { movieResults, isSearchLoading } from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
-export default ({location})=>{
-    console.log(location);
+export default function Results(){
+
+    const history=useHistory();
+    const location=history.location;
+
+
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
     const isLoading= useSelector(state => isSearchLoading(state));
@@ -21,8 +27,9 @@ export default ({location})=>{
            setIsLooked(true)
            dispatch(searchMovie({movieName}))
        }
+       console.log(movieName);
     });
-
+ 
     const renderMovies=()=>{
         if(movies)
             return movies.map((value, index) => <MovieResult key={index} {...value}/>);
