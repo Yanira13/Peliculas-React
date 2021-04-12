@@ -6,22 +6,22 @@ export default makeStyles({
          marginTop:20,
          padding:6,
          backgroundColor:'#8c9eff',
-        
+         display:'flex',
+       flexDirection:'column'
     },
     img:{
         width:250,
         margin:5,
-        height:200,
+        height:400,
     },
     cardContend:{
         padding:10,
-        width:140
+        width:150
     },
     box:{
-       display:'flex',
-       height:100
-    },
-    button:{
         alignItems:'flex-end'
-    }
+    },
+    titulo:{
+        width:245 
+    },
 })

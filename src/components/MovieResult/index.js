@@ -1,8 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
 import { Button, Card,Grid, Typography, CardActionArea, CardMedia, CardContent, CardActions } from "@material-ui/core";
 import style from "./style";
 import sin_img from "../../media/sin_imagen.jpg";
+import  Image  from "material-ui-image";
+
 const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
 
     const classes=style();
@@ -13,19 +16,17 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
     if(Poster!='N/A'){
         return(
          <Card className={classes.cardContainer}>
-             <CardActionArea>
-               <CardMedia component="img" src={Poster} alt={Title} height="140" className={classes.img}/>
+               <CardMedia component="img" src={Poster} alt={Title} height="140" className={classes.img} cover="true"/>
                <CardContent className={classes.cardContend}>
-                 <Typography gutterBottom variant="h5" component="h2">
-                 {Title}
-                 </Typography>
-                 <Typography>{Year}</Typography>
-                <Typography>{Type}</Typography>
+                  <Typography className={classes.titulo}  gutterBottom variant="h5" component="h2">
+                  {Title}
+                  </Typography>
+                  <Typography>{Year}</Typography>
+                  <Typography>{Type}</Typography>
                </CardContent>
-             </CardActionArea>
              <CardActions className={classes.box}>
-             <Button color="primary" variant="contained" size="small" className={classes.buttom} 
-             onClick={handleSeeMovieClick} className={classes.buttom}>Ver más</Button>
+             <Button color="primary"  size="small"
+             onClick={handleSeeMovieClick} >Ver más</Button>
              </CardActions>
          </Card>
         );
