@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory,Route,Link } from 'react-router-dom';
 
-import Results from '../results';
+import Results from '../Results';
 import MovieDatil from "../MovieDetail";
 
 
@@ -19,7 +19,7 @@ export default function Home (){
 	const history= useHistory();
 	const [searchText,setSearchText] = useState('');
 	const classes=styles();
-
+	const val="";
 	
 	const takeSearchTextChange= event =>{
 		setSearchText(event.target.value);
@@ -27,14 +27,13 @@ export default function Home (){
 
 	const searchTextClick= () =>{
 		//si buscas vacio te aparecen las paliculas de piratas
-		if(searchText==='')
-			history.push(`/results?movieName=piratas`);
 		history.push(`/results?movieName=${searchText}`);
+		console.log(searchText);
 	};
 	
 	return(
 	
-		<div className={classes.root}>
+	<div className={classes.root}>
 		<AppBar position="static" className={classes.appBar}>
 		<Toolbar>
 			{/* <IconButton
@@ -70,10 +69,11 @@ export default function Home (){
 			
 		</Toolbar>
 		</AppBar>
-		
+		{/* <div className={classes.box}>
 			<Route path="/results" component={Results} />
 			<Route path="/movie/:id" component={MovieDatil} />
-		</div>
+		</div> */}
+	</div>
 	)
 	
 	

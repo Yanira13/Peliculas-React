@@ -8,6 +8,7 @@ import queryString from "query-string";
 import { searchMovie } from "../../redux/actions/search";
 import { movieResults, isSearchLoading } from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
+let actualMovieName='';
 
 export default function Results(){
 
@@ -18,16 +19,17 @@ export default function Results(){
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
     const isLoading= useSelector(state => isSearchLoading(state));
-    const [isLooked, setIsLooked]= useState(false);
 
     useEffect(()=>{
-        const {movieName} = queryString.parse(location.search);
-       
-       if (movieName && !isLooked) {
-           setIsLooked(true)
-           dispatch(searchMovie({movieName}))
+        let {movieName} = queryString.parse(location.search);
+        
+        //para solo hacer una petición a la api
+       if (movieName!=actualMovieName) {
+            actualMovieName=movieName;
+            dispatch(searchMovie({movieName}))
+            
        }
-       console.log(movieName);
+       
     });
  
     const renderMovies=()=>{

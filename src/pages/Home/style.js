@@ -8,39 +8,13 @@ const ceneteredStyleObj={
 
 export default makeStyles((theme)=>( {
 
-    container:{
-        // height:'100vh',
-        // ...ceneteredStyleObj,
-        // flexDirection:'column'
-    },
-    cardContainer:{
-        ...ceneteredStyleObj,
-        flexDirection:'column',
-        width:400,
-        height:200,
-        padding:'2rem'
-    },
-    title:{
-        fontSize:'4rem'
-    },
-    titleGridContainer:{
-        ...ceneteredStyleObj
-    },
-    textFieldSearch:{
-        width:'90%'
-    },
-    buttomContainer:{
-        marginTop:'.5rem'
-    },
     searchButtom:{
         marginLeft:'.5rem',
         color:'white'
     },
-    icon:{
-        fontSize:'4rem'
-    },
     root: {
         flexGrow: 1,
+
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -97,5 +71,6 @@ export default makeStyles((theme)=>( {
       },
       appBar:{
         backgroundColor:'#8c9eff' ,
-       }
+       },
+       
 }));

@@ -1,20 +1,27 @@
-import {makeStyles} from '@material-ui/core';
+import { makeStyles} from '@material-ui/core';
 
 export default makeStyles({
     cardContainer:{
-        margin:8,
-        padding:5,
-
+         marginRight:50,
+         marginTop:20,
+         padding:6,
+         backgroundColor:'#8c9eff',
+        
     },
     img:{
-        width:120,
-        margin:10
+        width:250,
+        margin:5,
+        height:200,
     },
-    gridText:{
+    cardContend:{
         padding:10,
         width:140
     },
-    buttom:{
-        marginTop:50
+    box:{
+       display:'flex',
+       height:100
+    },
+    button:{
+        alignItems:'flex-end'
     }
 })
