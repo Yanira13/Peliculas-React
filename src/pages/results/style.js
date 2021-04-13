@@ -4,7 +4,7 @@ export default makeStyles({
     box:{
        display:'flex',
        flexDirection:'row',
-       //flexGrow:''
+       justifyContent:'space-around'
     },
 
 })

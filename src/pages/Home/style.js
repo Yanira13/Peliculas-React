@@ -14,7 +14,6 @@ export default makeStyles((theme)=>( {
     },
     root: {
         flexGrow: 1,
-
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -58,7 +57,7 @@ export default makeStyles((theme)=>( {
       inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        paddingLeft: 10,
         transition: theme.transitions.create('width'),
         borderColor:'text.primary',
         width: '100%',

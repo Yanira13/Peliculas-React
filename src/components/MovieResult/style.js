@@ -7,12 +7,12 @@ export default makeStyles({
          padding:6,
          backgroundColor:'#8c9eff',
          display:'flex',
-       flexDirection:'column'
+        flexDirection:'column'
     },
     img:{
         width:250,
         margin:5,
-        height:400,
+        height:300,
     },
     cardContend:{
         padding:10,

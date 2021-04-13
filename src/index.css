@@ -1,3 +1,8 @@
 body{
     background-color:#5870cb;
 }
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,14 +1,15 @@
 import React,{useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory} from 'react-router-dom';
+import { useHistory,Route} from 'react-router-dom';
 
 import { Container, CircularProgress, Divider,Grid , flexGrow} from "@material-ui/core";
 import queryString from "query-string";
 import style from "./style";
 
 import { searchMovie } from "../../redux/actions/search";
-import { movieResults, isSearchLoading } from "../../redux/selectors";
+import { movieResults, isSearchLoading} from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
+import MovieDatil from '../MovieDetail';
 let actualMovieName='';
 
 export default function Results(){
@@ -19,6 +20,7 @@ export default function Results(){
 
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
+    
     const isLoading= useSelector(state => isSearchLoading(state));
 
     useEffect(()=>{
@@ -38,7 +40,7 @@ export default function Results(){
 
     const renderMovies=()=>{
         if(movies){
-            return movies.map((value, index) => <MovieResult key={index} {...value}/>);
+            return movies.map((value, index) => <MovieResult key={index} {...value}/> );
         }  
         else if(isLoading)
             return <CircularProgress size={100} />
@@ -46,10 +48,11 @@ export default function Results(){
             return <h1>No tenemos esa pelicula</h1>
         return <div/>
     }
-console.log(renderMovies());
+
     return(
         <Grid container className={classes.box} >
            {renderMovies()}
         </Grid>
+        
     )
 }
