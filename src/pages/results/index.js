@@ -10,6 +10,7 @@ import { searchMovie } from "../../redux/actions/search";
 import { movieResults, isSearchLoading} from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
+let actualMovieName='';
 
 export default function Results(){
 
@@ -43,7 +44,7 @@ export default function Results(){
             return <h1>No tenemos esa pelicula</h1>
         return <div/>
     }
-
+console.log(movieResults);
     return(
         <Grid container className={classes.box} >
            {renderMovies()}

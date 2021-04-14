@@ -14,6 +14,7 @@ export default ({match})=> {
 
     useEffect(()=>{
         const movieId = match.params.id;
+        console.log(match);
         if (!movieResult || movieResult && movieResult.imdbID !== movieId) 
             dispatch(searchMovieById({movieId}));  
     });

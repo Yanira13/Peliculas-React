@@ -34,10 +34,9 @@ export default function Home (){
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
-	function handleClose (valor)  {
+	function handleClose (event)  {
 		setAnchorEl(null);
-		setYear(valor)
-		console.log(year);
+		
 	};
 	  
 	  const options = [
@@ -50,11 +49,10 @@ export default function Home (){
 	//Recoger valor del menu
 	const [year,setYear]=useState('')
 
-	const takeSearchYearChange= event =>{
-		setYear(event.target.va)
-		console.log(event);
+	function takeSearchYearChange (event) {
+		setYear(event.currentTarget.dataset.value)
 	};
-	
+
 	return(
 	
 	<div className={classes.root}>
@@ -67,8 +65,8 @@ export default function Home (){
 			<Menu
 				id="long-menu"
 				anchorEl={anchorEl}
-				// onChange={takeSearchYearChange}
-				// value='mierda'
+				// onClick={takeSearchYearChange}
+				// data-value={year}
 				keepMounted
 				open={open}
 				onClose={handleClose}
@@ -80,7 +78,7 @@ export default function Home (){
 				}}
 			>
 				{options.map((option) => (
-				<MenuItem key={option} data-value={option} onClick={e => handleClose(e.target.value)} >
+				<MenuItem key={option} data-value={option} onClick={takeSearchYearChange} >
 					{option}
 				</MenuItem>
 				))}
