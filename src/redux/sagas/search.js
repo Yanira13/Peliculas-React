@@ -4,7 +4,10 @@ import { SEARCH_MOVIE_START,
         SEARCH_MOVIE_COMPLETE,
         SEARCH_MOVIE_BY_ID_START,
         SEARCH_MOVIE_BY_ID_ERROR,
-        SEARCH_MOVIE_BY_ID_COMPLETE 
+        SEARCH_MOVIE_BY_ID_COMPLETE,
+        SEARCH_MOVIE_BY_YEAR_START,
+        SEARCH_MOVIE_BY_YEAR_ERROR,
+        SEARCH_MOVIE_BY_YEAR_COMPLETE 
         } from "../../consts/actionTypes";
 
 import { apiCall } from "../api/index";
@@ -27,8 +30,18 @@ export function* searchMovieById({payload}){
     }
 }
 
+export function* searchMovieByYear({payload}){
+    try {
+        const year=yield call(apiCall, `&y=${payload.movieYear}`, null,null, 'GET');
+        yield  put({type:SEARCH_MOVIE_BY_YEAR_COMPLETE, year})
+    } catch (error) {
+        yield  put({type:SEARCH_MOVIE_BY_YEAR_ERROR, error})
+    }
+}
+
 
 export default function* search(){
     yield takeLatest(SEARCH_MOVIE_START,searchMovie);
     yield takeLatest(SEARCH_MOVIE_BY_ID_START,searchMovieById);
+    yield takeLatest(SEARCH_MOVIE_BY_YEAR_START,searchMovieByYear);
 }

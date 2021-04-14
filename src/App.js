@@ -7,6 +7,7 @@ import './index.css'
 import Home from './pages/Home';
 import Results from './pages/Results';
 import MovieDatil from './pages/MovieDetail';
+import DefaultResults from './pages/DefoultResults';
 
 function App ({ store }) {
 

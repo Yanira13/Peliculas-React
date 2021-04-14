@@ -26,7 +26,7 @@ export default makeStyles((theme)=>( {
         },
         textDecoration:'none',
         color:'white',
-        fontSize:25
+        fontSize:25,
     },
     search: {
         position: 'relative',
