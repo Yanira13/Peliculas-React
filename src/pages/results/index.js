@@ -26,7 +26,8 @@ export default function Results(){
 
     useEffect(()=>{
         let {movieName} = queryString.parse(location.search);
-        
+        if(movieName==undefined)
+            movieName='piratas'
         //para solo hacer una petición a la api
        if (movieName!=movieSearch) {
             setMovieSearch(movieName)

@@ -1,4 +1,5 @@
 import { makeStyles} from '@material-ui/core';
+import { BorderAll } from '@material-ui/icons';
 
 export default makeStyles({
     cardContainer:{
@@ -24,4 +25,9 @@ export default makeStyles({
     titulo:{
         width:245 
     },
+    button:{
+        padding:0,
+        marginBottoms:20,
+        color:'black'
+    }
 })

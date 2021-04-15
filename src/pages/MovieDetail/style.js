@@ -15,8 +15,10 @@ export default makeStyles((theme)=>({
     },
     img:{
         display:'flex',
-        justifyContent:"flex-end"
-    },
+        justifyContent:"flex-end",
+        marginBottom:20,
+          
+     },
     info:{
         marginLeft:20
     },
@@ -25,6 +27,7 @@ export default makeStyles((theme)=>({
     },
     tituloTxt:{
         fontFamily:'Homer Simpson UI',
+        marginLeft:40
     }
 
 }))
