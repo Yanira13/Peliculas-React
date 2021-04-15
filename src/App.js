@@ -7,7 +7,7 @@ import './index.css'
 import Home from './pages/Home';
 import Results from './pages/Results';
 import MovieDatil from './pages/MovieDetail';
-import DefaultResults from './pages/MovieYear';
+import MovieYear from './pages/MovieYear';
 
 function App ({ store }) {
 
@@ -17,6 +17,7 @@ function App ({ store }) {
 				 <Route path="/" component={Home} /> 
 				 <Route path="/results" component={Results} /> 
 				 <Route path="/movie/:id"  component={MovieDatil} /> 
+				 <Route path="/year/:year"  component={MovieYear} /> 
 			</Router> 
 		</Provider>
 	)

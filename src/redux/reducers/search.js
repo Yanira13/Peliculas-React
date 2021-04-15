@@ -4,7 +4,10 @@ import { SEARCH_MOVIE_START,
 	SEARCH_MOVIE_COMPLETE,
 	SEARCH_MOVIE_BY_ID_START,
     SEARCH_MOVIE_BY_ID_ERROR,
-	SEARCH_MOVIE_BY_ID_COMPLETE 
+	SEARCH_MOVIE_BY_ID_COMPLETE,
+	SEARCH_MOVIE_BY_YEAR_START,
+    SEARCH_MOVIE_BY_YEAR_ERROR,
+	SEARCH_MOVIE_BY_YEAR_COMPLETE 
 	} from "../../consts/actionTypes";
 
 
@@ -28,8 +31,17 @@ export default function(state = initialState, action) {
 			return {...state, isLoading:false, movieResult:null};
 			break;
 		case SEARCH_MOVIE_BY_ID_COMPLETE:
-			console.log(action)
 			return {...state, isLoading:false, movieResult: action.movie.data};
+			break;
+		case SEARCH_MOVIE_BY_YEAR_START:
+			return {...state, isLoading:true};
+			break;
+		case SEARCH_MOVIE_BY_YEAR_ERROR:
+			return {...state, isLoading:false, movieResultYear:null};
+			break;
+		case SEARCH_MOVIE_BY_YEAR_COMPLETE:
+			console.log(action)
+			return {...state, isLoading:false, movieResultYear: action.year.data};
 			break;
 		default:
 			return {...state};

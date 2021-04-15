@@ -1,7 +1,9 @@
 import React, {useEffect} from "react";
-import { Container, CircularProgress, Typography,Grid } from "@material-ui/core";
 import { useDispatch,useSelector } from "react-redux";
+
+import { Container, CircularProgress, Typography,Grid } from "@material-ui/core";
 import styles from "./style"
+
 import { movieResult as mvSelector } from "../../redux/selectors";
 import { searchMovieById } from "../../redux/actions/search";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SEARCH_MOVIE_START, SEARCH_MOVIE_BY_ID_START } from "../../consts/actionTypes";
+import { SEARCH_MOVIE_START, SEARCH_MOVIE_BY_ID_START,SEARCH_MOVIE_BY_YEAR_START } from "../../consts/actionTypes";
 
 export const searchMovie = payload =>({
     type:SEARCH_MOVIE_START,
@@ -8,5 +8,10 @@ export const searchMovie = payload =>({
 
 export const searchMovieById = payload =>({
     type:SEARCH_MOVIE_BY_ID_START,
+    payload
+});
+
+export const searchMovieByYear = payload =>({
+    type:SEARCH_MOVIE_BY_YEAR_START,
     payload
 });

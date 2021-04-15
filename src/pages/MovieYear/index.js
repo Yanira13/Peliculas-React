@@ -3,28 +3,33 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Container, CircularProgress, Divider,Grid , flexGrow} from "@material-ui/core";
 import queryString from "query-string";
-import style from "../Results/style";
+import styles from "../Results/style";
 
-import { searchMovie } from "../../redux/actions/search";
-import { movieResults, isSearchLoading} from "../../redux/selectors";
+import { searchMovieByYear } from "../../redux/actions/search";
+import { movieResultYear, isSearchLoading} from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
-let actualMovieName='';
 
 export default function MovieYear({match}){
 
     const dispatch=useDispatch();
-    const movies=useSelector(state=> movieResults(state))
+    const movies=useSelector(state=> console.log(state));
+    const [movieSearch,setMovieSearch]=useState('');
+    const isLoading= useSelector(state => isSearchLoading(state));
+
     const classes=styles();
 
     useEffect(()=>{
         const movieYear = match.params.year;
-        
-        if (!movieResult || movieResult && movieResult.imdbID !== movieId) 
-            dispatch(searchMovieById({movieId}));  
+        console.log(movieYear);
+        // if (!movieResult || movieResult && movieResult.imdbID !== movieYear) 
+        //     dispatch(searchMovieById({movieYear}));  
+        if (movieYear!=movieSearch) {
+            setMovieSearch(movieYear)
+            dispatch(searchMovieByYear({movieYear}))
+        } 
     });
-
-
+        console.log(movies);
         const renderMovies=()=>{
             if(movies){
                 return movies.map((value, index) => <MovieResult key={index} {...value}/> );

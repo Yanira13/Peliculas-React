@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,Link } from "react-router-dom";
 
 import { Button, Card,Grid, Typography, CardActionArea, CardMedia, CardContent, CardActions } from "@material-ui/core";
 import style from "./style";
@@ -12,8 +12,9 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history,Ratings,Actors})
     const handleSeeMovieClick=()=>{
         history.push(`/movie/${imdbID}`)
     }
-    // console.log(Ratings);
-    // console.log(Actors);
+    const handleSeeMovieYearClick=()=>{
+        history.push(`/year/${Year}`)
+    }
     let imagen;
     if(Poster!='N/A')
         imagen=Poster
@@ -27,7 +28,8 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history,Ratings,Actors})
                   <Typography className={classes.titulo}  gutterBottom variant="h5" component="h2">
                   {Title}
                   </Typography>
-                  <Typography>{Year}</Typography>
+                  <Button color="primary"  size="small"
+                    onClick={handleSeeMovieYearClick}>{Year}</Button>
                   <Typography>{Type}</Typography>
                   <Typography>{Ratings}</Typography>
                </CardContent>
