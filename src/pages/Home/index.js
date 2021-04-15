@@ -8,6 +8,7 @@ from '@material-ui/core'
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import styles from './style'
+import Results from '../Results';
 
 
 
@@ -83,7 +84,7 @@ export default function Home (){
 				</MenuItem>
 				))}
       		</Menu>
-			<Link to="/" className={classes.title} >
+			<Link to="/results" className={classes.title} >
 				Peliculas y series
 			</Link>
 			<div className={classes.search}>
@@ -105,7 +106,6 @@ export default function Home (){
 			
 		</Toolbar>
 		</AppBar>
-		
 	</div>
 	)
 	

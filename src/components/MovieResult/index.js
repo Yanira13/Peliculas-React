@@ -1,12 +1,12 @@
 import React from "react";
-import { withRouter,Link } from "react-router-dom";
+import { withRouter,Link, Redirect } from "react-router-dom";
 
 import { Button, Card,Grid, Typography, CardActionArea, CardMedia, CardContent, CardActions } from "@material-ui/core";
 import style from "./style";
 import sin_img from "../../media/sin_imagen.jpg";
-import  Image  from "material-ui-image";
 
-const MovieResult = ({Title, Year, Type, imdbID, Poster,history,Ratings,Actors}) => {
+
+const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
 
     const classes=style();
     const handleSeeMovieClick=()=>{
@@ -14,6 +14,7 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history,Ratings,Actors})
     }
     const handleSeeMovieYearClick=()=>{
         history.push(`/year/${Year}`)
+        
     }
     let imagen;
     if(Poster!='N/A')
@@ -31,7 +32,6 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history,Ratings,Actors})
                   <Button color="primary"  size="small"
                     onClick={handleSeeMovieYearClick}>{Year}</Button>
                   <Typography>{Type}</Typography>
-                  <Typography>{Ratings}</Typography>
                </CardContent>
              <CardActions className={classes.box}>
              <Button color="primary"  size="small"
