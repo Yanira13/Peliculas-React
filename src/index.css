@@ -1,8 +1,73 @@
+html {
+    --body-color: #5870cb;
+    --appBar-color:#8c9eff ;
+    --title-color:black;
+    --switch-left:0;
+    --switch-right:unset;
+    --border-color:#5870cb;
+  }
+  
+  /* Color variables if the theme is dark */
+  html[data-theme="dark"] {
+    --body-color: #1b1b1b;
+    --appBar-color:#424242 ;
+    --title-color:white;
+    --switch-left:unset;
+    --switch-right:0;
+    --border-color:#1b1b1b;
+  }
+
+
 body{
-    background-color:#5870cb;
+    background-color:var(--body-color);
 }
 #root{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+#appBar,#cardContainer,#switch{
+    background-color:var(--appBar-color)
+   }
+
+ #title{
+    color:var(--title-color)
+   }
+
+   #switch{
+    margin-left: 10px;
+    display:flex;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid ;
+    border-color: var(--border-color);
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#icon{
+    width:15px;
+    height:15px;
+    line-height:30px;
+    display:block;
+    color:#fff;
+    background: none;
+}
+
+#switch::after{
+    display:block;
+    background: #fffbf5;
+    width: 1.7rem;
+    height: 1.7rem;
+    position: absolute;
+    top:0;
+    left:var(--switch-left);
+    right:var(--switch-right);
+    border-radius: 3rem;
+    transition: all .5s ease;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .5);
+    content: "";
+}
+

@@ -2,14 +2,16 @@ import React, {useEffect, useState} from 'react';
 import { useHistory,Link } from 'react-router-dom';
 
 
-import {Button,AppBar,Toolbar,IconButton,InputBase,FormControl,InputLabel,
-	NativeSelect,Menu,MenuItem } 
+import {Button,AppBar,Toolbar,IconButton,InputBase,Menu,MenuItem } 
 from '@material-ui/core'
+
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import styles from './style'
-import Results from '../Results';
+import '../../index.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun,faMoon } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Home (){
@@ -22,15 +24,12 @@ export default function Home (){
 	const takeSearchTextChange= event =>{
 		setSearchText(event.target.value);
 	};
-
+	//Buscador 
 	const searchTextClick= (event) =>{
 		let x = event.keyCode
-
 		if(x==13 || x==undefined){
 			history.push(`/results?movieName=${searchText}`);
 		}
-		
-		console.log(searchText);
 	};
 
 	//Menu
@@ -44,13 +43,11 @@ export default function Home (){
 		setAnchorEl(null);
 		
 	};
-	  
-	  const options = [
+	const options = [
 		'None',
 		'Atria',
 		'Callisto',
 		'Dione',]
-
 
 	//Recoger valor del menu
 	const [year,setYear]=useState('')
@@ -59,10 +56,32 @@ export default function Home (){
 		setYear(event.currentTarget.dataset.value)
 	};
 
+	//Modo oscuro
+	const [checked, setChecked] = useState(localStorage.getItem("theme") === "dark" ? true : false);
+	const [cont,setCont]=useState(0)
+
+	useEffect(() => {
+	  document
+		.getElementsByTagName("HTML")[0]
+		.setAttribute("data-theme", localStorage.getItem("theme"));
+	}, [checked]);
+
+	const toggleThemeChange = () => {
+	  if (cont ==0) {
+		localStorage.setItem("theme", "dark");
+		setChecked(true);
+		setCont(cont+1)
+	  } else {
+		localStorage.setItem("theme", "light");
+		setChecked(false);
+		setCont(cont-1)
+	  }
+	}
+
 	return(
 	
 	<div className={classes.root}>
-		<AppBar position="static" className={classes.appBar}>
+		<AppBar position="static" id="appBar" >
 		<Toolbar>
 			<IconButton edge="start" className={classes.menuButton} color="inherit"
 				aria-label="open drawer"  onClick={handleClick}>
@@ -109,7 +128,10 @@ export default function Home (){
 					<SearchIcon />  
 				</Button>
 			</div>
-			
+		 	 <Button  id="switch" onClick={toggleThemeChange}>
+				 <FontAwesomeIcon icon={faMoon} id="icon"/>
+				 <FontAwesomeIcon icon={faSun} id="icon"/>
+	  		</Button>
 		</Toolbar>
 		</AppBar>
 	</div>

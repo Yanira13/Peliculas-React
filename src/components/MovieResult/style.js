@@ -28,6 +28,6 @@ export default makeStyles({
     button:{
         padding:0,
         marginBottoms:20,
-        color:'black'
+        //color:'black'
     }
 })

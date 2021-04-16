@@ -20,13 +20,15 @@ export default makeStyles((theme)=>( {
     },
     title: {
         flexGrow: 1,
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-          display: 'block',
-        },
+       // display: 'none',
+       // display: 'block',
+        // [theme.breakpoints.up('sm')]: {
+        //   display: 'block',
+        // },
         textDecoration:'none',
         color:'white',
         fontSize:25,
+        width:5
     },
     search: {
         position: 'relative',
@@ -68,8 +70,6 @@ export default makeStyles((theme)=>( {
           },
         },
       },
-      appBar:{
-        backgroundColor:'#8c9eff' ,
-       },
+      
        
 }));
