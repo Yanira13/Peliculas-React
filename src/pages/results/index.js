@@ -45,7 +45,7 @@ export default function Results(){
             return <h1>No tenemos esa pelicula</h1>
         return <div/>
     }
-console.log(movieResults);
+
     return(
         <Grid container className={classes.box} >
            {renderMovies()}

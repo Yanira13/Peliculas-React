@@ -23,8 +23,13 @@ export default function Home (){
 		setSearchText(event.target.value);
 	};
 
-	const searchTextClick= () =>{
-		history.push(`/results?movieName=${searchText}`);
+	const searchTextClick= (event) =>{
+		let x = event.keyCode
+
+		if(x==13 || x==undefined){
+			history.push(`/results?movieName=${searchText}`);
+		}
+		
 		console.log(searchText);
 	};
 
@@ -95,8 +100,9 @@ export default function Home (){
 					classes={{
 					root: classes.inputRoot,
 					input: classes.inputInput,
+					
 					}}
-					inputProps={{ 'aria-label': 'search' }}
+					inputProps={{ 'aria-label': 'search',onKeyDown:function(){searchTextClick(event)} }}
 				/>
 				<Button  size="medium" className={classes.searchButtom} 
 				onClick={searchTextClick}>
