@@ -7,6 +7,7 @@ import styles from "./style"
 import { movieResult as mvSelector } from "../../redux/selectors";
 import { searchMovieById } from "../../redux/actions/search";
 import sin_img from "../../media/sin_imagen.jpg";
+import { Link } from "react-router-dom";
 
 export default ({match})=> {
 
@@ -36,7 +37,9 @@ export default ({match})=> {
                 <Typography variant="h3" className={classes.tituloTxt}>{movieResult.Title}</Typography>
             </Grid>
             <Grid item xs={6} className={classes.img}>
+                <a href={`https://www.youtube.com/results?search_query=${movieResult.Title}+trailer`}>
                 <img src={imagen} alt={movieResult.Title} width='300'/>
+                </a>
             </Grid>
             <Grid item xs={5} className={classes.info}>
                 <Typography className={classes.txt}><strong>Actores:</strong> {movieResult.Actors}</Typography>
