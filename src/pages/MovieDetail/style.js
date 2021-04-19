@@ -5,8 +5,6 @@ export default makeStyles((theme)=>({
        alignSelf:'center',
        width:700,
        marginTop:10,
-        backgroundColor:'#8c9eff',
-        color:'#dff6f9',
     },
     titulo:{
         display:'flex',

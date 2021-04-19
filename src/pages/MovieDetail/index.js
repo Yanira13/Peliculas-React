@@ -3,11 +3,12 @@ import { useDispatch,useSelector } from "react-redux";
 
 import { Container, CircularProgress, Typography,Grid } from "@material-ui/core";
 import styles from "./style"
+import '../../index.css'
 
 import { movieResult as mvSelector } from "../../redux/selectors";
 import { searchMovieById } from "../../redux/actions/search";
 import sin_img from "../../media/sin_imagen.jpg";
-import { Link } from "react-router-dom";
+
 
 export default ({match})=> {
 
@@ -32,8 +33,8 @@ export default ({match})=> {
         imagen=sin_img
 
     return (
-        <Grid container spacing={2} className={classes.container}>
-            <Grid item xs={12} className={classes.titulo}>
+        <Grid container spacing={2} id="box" className={classes.container}>
+            <Grid item xs={12}  className={classes.titulo}>
                 <Typography variant="h3" className={classes.tituloTxt}>{movieResult.Title}</Typography>
             </Grid>
             <Grid item xs={6} className={classes.img}>

@@ -57,23 +57,20 @@ export default function Home (){
 	};
 
 	//Modo oscuro
-	const [checked, setChecked] = useState(localStorage.getItem("theme") === "dark" ? true : false);
-	const [cont,setCont]=useState(0)
+	const [cont,setCont]=useState(localStorage.getItem("theme") === "dark" ? 1 : 0);
 
 	useEffect(() => {
 	  document
 		.getElementsByTagName("HTML")[0]
 		.setAttribute("data-theme", localStorage.getItem("theme"));
-	}, [checked]);
+	}, [cont]);
 
 	const toggleThemeChange = () => {
 	  if (cont ==0) {
 		localStorage.setItem("theme", "dark");
-		setChecked(true);
 		setCont(cont+1)
 	  } else {
 		localStorage.setItem("theme", "light");
-		setChecked(false);
 		setCont(cont-1)
 	  }
 	}

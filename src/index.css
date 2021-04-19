@@ -26,14 +26,15 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-#appBar,#cardContainer,#switch{
+#appBar,#cardContainer,#switch,#box{
     background-color:var(--appBar-color)
    }
 
- #title{
+ #title,#box{
     color:var(--title-color)
    }
 
+   /* Modo oscuro */
    #switch{
     margin-left: 10px;
     display:flex;
