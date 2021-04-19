@@ -30,11 +30,11 @@ body{
     background-color:var(--appBar-color)
    }
 
- #title,#box{
-    color:var(--title-color)
+ #title,#box,#error,.MuiPaginationItem-root{
+    color:var(--title-color) !important
    }
-
-   /* Modo oscuro */
+ 
+   /* Modo oscuro icono */
    #switch{
     margin-left: 10px;
     display:flex;

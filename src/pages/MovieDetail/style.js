@@ -3,7 +3,7 @@ import { makeStyles} from '@material-ui/core';
 export default makeStyles((theme)=>({
     container:{
        alignSelf:'center',
-       width:700,
+       width:800,
        marginTop:10,
     },
     titulo:{

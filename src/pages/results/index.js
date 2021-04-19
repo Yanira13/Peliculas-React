@@ -2,15 +2,17 @@ import React,{useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory,Route} from 'react-router-dom';
 
-import { Container, CircularProgress, Divider,Grid , flexGrow} from "@material-ui/core";
+import { CircularProgress,Grid } from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';
 import queryString from "query-string";
 import style from "./style";
+import '../../index.css'
 
 import { searchMovie } from "../../redux/actions/search";
 import { movieResults, isSearchLoading} from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
-let actualMovieName='';
+
 
 export default function Results(){
 
@@ -21,11 +23,13 @@ export default function Results(){
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
     const [movieSearch,setMovieSearch]=useState('')
-    
-    const isLoading= useSelector(state => isSearchLoading(state));
+    const [page,setPage]=useState(0);
 
+    const isLoading= useSelector(state => isSearchLoading(state));
+    let {movieName} = queryString.parse(location.search);
+    
     useEffect(()=>{
-        let {movieName} = queryString.parse(location.search);
+       
         if(movieName==undefined)
             movieName='piratas'
         //para solo hacer una petición a la api
@@ -42,14 +46,23 @@ export default function Results(){
         else if(isLoading)
             return <CircularProgress size={100} />
         if(movies==undefined)
-            return <h1>No tenemos esa pelicula</h1>
+            return <h1 id="error">No tenemos esa pelicula</h1>
         return <div/>
     }
 
+    const handleChange = (event, value) => {
+        setPage(value);
+        dispatch(searchMovie('piratas&page=2'))
+    };
+
     return(
+        <div >
         <Grid container className={classes.box} >
            {renderMovies()}
         </Grid>
+        <Pagination count={10} color="primary" className={classes.pagination} 
+        onChange={handleChange}/>
+        </div>
         
     )
 }

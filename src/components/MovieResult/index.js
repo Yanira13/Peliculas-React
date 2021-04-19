@@ -14,7 +14,6 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
     }
     const handleSeeMovieYearClick=()=>{
         history.push(`/year/${Year}`)
-        
     }
     let imagen;
     if(Poster!='N/A')
@@ -36,7 +35,7 @@ const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
                </CardContent>
              <CardActions className={classes.box}>
              <Button color="primary"  size="small" id="title"
-             onClick={handleSeeMovieClick} >Ver más</Button>
+                onClick={handleSeeMovieClick} >Ver más</Button>
              </CardActions>
          </Card>
         );  

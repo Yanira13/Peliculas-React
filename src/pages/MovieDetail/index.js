@@ -33,15 +33,15 @@ export default ({match})=> {
 
     return (
         <Grid container spacing={2} id="box" className={classes.container}>
-            <Grid item xs={12}  className={classes.titulo}>
+            <Grid item xs={12}  className={classes.titulo} id="txt">
                 <Typography variant="h3" className={classes.tituloTxt}>{movieResult.Title}</Typography>
             </Grid>
-            <Grid item xs={6} className={classes.img}>
+            <Grid item xs={6} className={classes.img} id="txt">
                 <a href={`https://www.youtube.com/results?search_query=${movieResult.Title}+trailer`}>
                 <img src={imagen} alt={movieResult.Title} width='300'/>
                 </a>
             </Grid>
-            <Grid item xs={5} className={classes.info}>
+            <Grid item xs={5} className={classes.info} id="txt">
                 {movieResult.Actors != 'N/A' && 
                 <Typography className={classes.txt}><strong>Actores:</strong> {movieResult.Actors}</Typography>}
                 {movieResult.Director != 'N/A' && 
