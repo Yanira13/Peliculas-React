@@ -18,7 +18,6 @@ export default ({match})=> {
 
     useEffect(()=>{
         const movieId = match.params.id;
-        console.log(match);
         if (!movieResult || movieResult && movieResult.imdbID !== movieId) 
             dispatch(searchMovieById({movieId}));  
     });
@@ -43,12 +42,20 @@ export default ({match})=> {
                 </a>
             </Grid>
             <Grid item xs={5} className={classes.info}>
-                <Typography className={classes.txt}><strong>Actores:</strong> {movieResult.Actors}</Typography>
-                <Typography className={classes.txt}><strong>Director:</strong> {movieResult.Director}</Typography>
-                <Typography className={classes.txt}><strong>Pais:</strong> {movieResult.Country}</Typography>
-                <Typography className={classes.txt}><strong>Clasificación:</strong> {movieResult.Rated}</Typography>
-                <Typography className={classes.txt}><strong>Premios: </strong> {movieResult.Awards}</Typography>
-                <Typography className={classes.txt}><strong>Sinopsis:</strong> {movieResult.Plot}</Typography>
+                {movieResult.Actors != 'N/A' && 
+                <Typography className={classes.txt}><strong>Actores:</strong> {movieResult.Actors}</Typography>}
+                {movieResult.Director != 'N/A' && 
+                <Typography className={classes.txt}><strong>Director:</strong> {movieResult.Director}</Typography>}
+                {movieResult.Country != 'N/A' && 
+                <Typography className={classes.txt}><strong>Pais:</strong> {movieResult.Country}</Typography>}
+                {movieResult.Rated != 'N/A' && 
+                <Typography className={classes.txt}><strong>Clasificación:</strong> {movieResult.Rated}</Typography>}
+                {movieResult.Genre != 'N/A' && 
+                <Typography className={classes.txt}><strong>Genero:</strong> {movieResult.Genre}</Typography>}
+                {movieResult.Awards != 'N/A' && 
+                <Typography className={classes.txt}><strong>Premios: </strong> {movieResult.Awards}</Typography>}
+                {movieResult.Plot != 'N/A' && 
+                <Typography className={classes.txt}><strong>Sinopsis:</strong> {movieResult.Plot}</Typography>}
             </Grid>
         </Grid>
     )
