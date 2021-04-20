@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import queryString from "query-string";
 
 import { Button, Card,Link, Typography, CardActionArea, CardMedia, CardContent, CardActions } from "@material-ui/core";
 import style from "./style";
@@ -9,12 +10,17 @@ import '../../index.css'
 const MovieResult = ({Title, Year, Type, imdbID, Poster,history}) => {
 
     const classes=style();
+    const location=history.location;
+    let {movieName} = queryString.parse(location.search);
+    if(movieName==undefined)
+         movieName='piratas'
     const handleSeeMovieClick=()=>{
-        history.push(`/movie/${imdbID}`)
+        history.push(`/${movieName}/${imdbID}`)
     }
     const handleSeeMovieYearClick=()=>{
         history.push(`/year/${Year}`)
     }
+    
     let imagen;
     if(Poster!='N/A')
         imagen=Poster

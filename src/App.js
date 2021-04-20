@@ -17,7 +17,7 @@ function App ({ store }) {
 				 <Redirect from="/" to="/results"/>
 			 	<Route path="/" component={Home} /> 
 				 <Route path="/results" component={Results} /> 
-				 <Route path="/movie/:id"  component={MovieDatil} /> 
+				 <Route path="/:name/:id"  component={MovieDatil} /> 
 				 <Route path="/year/:year"  component={MovieYear} /> 
 			</Router> 
 		</Provider>

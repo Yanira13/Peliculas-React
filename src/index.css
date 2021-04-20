@@ -30,7 +30,7 @@ body{
     background-color:var(--appBar-color)
    }
 
- #title,#box,#error,.MuiPaginationItem-root{
+ #title,#box,#error,.MuiPaginationItem-root,#flecha{
     color:var(--title-color) !important
    }
  
@@ -56,6 +56,7 @@ body{
     color:#fff;
     background: none;
 }
+
 
 #switch::after{
     display:block;

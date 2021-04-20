@@ -6,10 +6,22 @@ export default makeStyles((theme)=>({
        width:800,
        marginTop:10,
     },
+    containerTitle:{
+        height:100,
+        alignSelf:'center',
+        margin:5
+    },
+    boton:{
+        width:50,
+        height:50
+    },
+    header:{
+        display:'flex',
+        justifyContent:"space-between",
+    },
     titulo:{
         display:'flex',
-        justifyContent:"center",
-        
+        justifyContent:'center'
     },
     img:{
         display:'flex',
@@ -24,6 +36,7 @@ export default makeStyles((theme)=>({
         marginBottom:5
     },
     tituloTxt:{
+        
         fontFamily:'Homer Simpson UI',
         marginLeft:40
     }
