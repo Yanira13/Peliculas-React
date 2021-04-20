@@ -40,7 +40,6 @@ export default function(state = initialState, action) {
 			return {...state, isLoading:false, movieResultYear:null};
 			break;
 		case SEARCH_MOVIE_BY_YEAR_COMPLETE:
-			console.log(action)
 			return {...state, isLoading:false, movieResultYear: action.year.data};
 			break;
 		default:

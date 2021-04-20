@@ -24,21 +24,20 @@ export default function Results(){
     const movies= useSelector(state=>movieResults(state));
     const [movieSearch,setMovieSearch]=useState('')
     const [page,setPage]=useState(0);
+    const [change,setChange]=useState(false)
 
     const isLoading= useSelector(state => isSearchLoading(state));
     let {movieName} = queryString.parse(location.search);
-    
-    useEffect(()=>{
-       
-        if(movieName==undefined)
+    if(movieName==undefined)
             movieName='piratas'
+    useEffect(()=>{
         //para solo hacer una petición a la api
        if (movieName!=movieSearch) {
             setMovieSearch(movieName)
             dispatch(searchMovie({movieName}))
        } 
     });
-
+    console.log(movies);
     const renderMovies=()=>{
         if(movies){
             return movies.map((value, index) => <MovieResult key={index} {...value}/> );
@@ -52,16 +51,27 @@ export default function Results(){
 
     const handleChange = (event, value) => {
         setPage(value);
-        dispatch(searchMovie('piratas&page=2'))
+        setChange(true)
     };
+    useEffect(()=>{
+        if(change==true){
+            movieName=movieName+'&page='+page
+            dispatch(searchMovie({movieName}))
+            setChange(false)
+        }
+    })
 
     return(
         <div >
+            {movieName==movieSearch &&
+            <Pagination count={10} defaultPage={1} color="primary" className={classes.pagination} 
+            onChange={handleChange}/>
+        }
         <Grid container className={classes.box} >
            {renderMovies()}
         </Grid>
-        <Pagination count={10} color="primary" className={classes.pagination} 
-        onChange={handleChange}/>
+        
+        
         </div>
         
     )
