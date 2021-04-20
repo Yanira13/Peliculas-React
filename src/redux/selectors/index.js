@@ -4,3 +4,4 @@ export const isSearchLoading = state => get(state, 'search.isLoading');
 export const movieResults = state => get(state, 'search.movieResults.Search');
 export const movieResult = state => get(state, 'search.movieResult');
 export const movieResultYear = state => get(state, 'search.movieResultYear');
+export const totalResult= state => get(state, 'search.movieResults.totalResults');

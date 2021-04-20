@@ -9,7 +9,7 @@ import style from "./style";
 import '../../index.css'
 
 import { searchMovie } from "../../redux/actions/search";
-import { movieResults, isSearchLoading} from "../../redux/selectors";
+import { movieResults, isSearchLoading,totalResult} from "../../redux/selectors";
 import  MovieResult  from "../../components/MovieResult";
 
 
@@ -22,6 +22,9 @@ export default function Results(){
 
     const dispatch= useDispatch();
     const movies= useSelector(state=>movieResults(state));
+    const totalResults=useSelector(state=>totalResult(state));
+    const totalPages=Math.ceil(totalResults/10);
+
     const [movieSearch,setMovieSearch]=useState('')
     const [page,setPage]=useState(0);
     const [change,setChange]=useState(false)
@@ -37,7 +40,7 @@ export default function Results(){
             dispatch(searchMovie({movieName}))
        } 
     });
-    console.log(movies);
+    
     const renderMovies=()=>{
         if(movies){
             return movies.map((value, index) => <MovieResult key={index} {...value}/> );
@@ -63,8 +66,8 @@ export default function Results(){
 
     return(
         <div >
-            {movieName==movieSearch &&
-            <Pagination count={10} defaultPage={1} color="primary" className={classes.pagination} 
+        {movieName==movieSearch &&
+            <Pagination count={totalPages} defaultPage={1} color="primary" className={classes.pagination} 
             onChange={handleChange}/>
         }
         <Grid container className={classes.box} >
